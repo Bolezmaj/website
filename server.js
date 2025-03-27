@@ -2,14 +2,11 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
-const PORT = 3001;  // Make sure this port is free
+const PORT = 3001; // Ensure this port is free
 
-// Serve static files from the "public" folder
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Serve index.html when accessing "/"
+// Serve index.html from the same folder as this script
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Handle the /complete-order route to show the license key
